@@ -1,11 +1,18 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import './navbar.css'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { signOut } from "firebase/auth";
+import auth from "../firebase/firebase.config";
+import Swal from 'sweetalert2'
+import 'sweetalert2/src/sweetalert2.scss'
 
 
 const Navbar = () => {
     const [theme,setTheme]=useState(localStorage.getItem('theme')? localStorage.getItem('theme'): 'light')
+
+    const {user}=useContext(AuthContext)
 
 
     useEffect(()=>{
@@ -28,6 +35,17 @@ const Navbar = () => {
 
 
 
+    const logOUt = () => {
+        signOut(auth)
+            .then(() => {
+                Swal.fire({
+                    title: "logOut success",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+            })
+            .catch(error => console.log(error))
+    }
 
 
 
@@ -54,6 +72,8 @@ const Navbar = () => {
                                
                             </ul>
                         </li>
+
+                        <NavLink to={'/allServices'}>All Services</NavLink>
                        
                     </ul>
                 </div>
@@ -73,7 +93,9 @@ const Navbar = () => {
 
                             </ul>
                         </details>
+                        
                     </li>
+                    <NavLink to={'/allServices'}>All Services</NavLink>
                     
                 </ul>
             </div>
@@ -81,7 +103,7 @@ const Navbar = () => {
                 <label className="swap swap-rotate">
 
                     {/* this hidden checkbox controls the state */}
-                    <input type="checkbox" onClick={themeController} className="theme-controller"  checked={theme==='light'? false: true} />
+                    <input type="checkbox" onChange={themeController} className="theme-controller"  checked={theme==='light'? false: true} />
 
                     {/* sun icon */}
                     <svg className="swap-off fill-current w-10 h-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" /></svg>
@@ -100,13 +122,15 @@ const Navbar = () => {
 
 
 
-                <div title="fahim" className="avatar rounded-full">
+                <div title={user && user.displayName} className="avatar rounded-full">
                     <div className="w-12">
-                        <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" className="rounded-full" />
+                        <img src={user ? user.photoURL :'https://i.ibb.co/Lt46gPw/6621261.jpg'} className="rounded-full" />
                     </div>
                 </div>
-                <a className="btn bg-[#e26d2f]">logIn</a>
+                {user ? <Link onClick={logOUt} className="btn bg-[#e26d2f]">logOut</Link> : <Link to={'/login'} className="btn bg-[#e26d2f]">logIn</Link>}
+                
             </div>
+            
         </div>
     );
 };
