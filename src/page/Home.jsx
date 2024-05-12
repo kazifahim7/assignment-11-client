@@ -3,6 +3,7 @@ import Slider from '../components/Slider';
 import About from '../components/About';
 import Review from '../components/Review';
 import Faq from '../components/Faq';
+import PopularServies from '../components/PopularServies';
 
 
 const Home = () => {
@@ -14,6 +15,8 @@ const Home = () => {
 
             <Slider></Slider>
             <About></About>
+
+            <PopularServies></PopularServies>
 
             <Review></Review>
 

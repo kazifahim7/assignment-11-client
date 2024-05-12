@@ -4,7 +4,7 @@ import { FaFacebook, FaGoogle, FaTwitter } from "react-icons/fa";
 const Footer = () => {
     const theme=localStorage.getItem('theme')
     return (
-        <footer className={`footer p-10 bg-${theme==='light'? 'white': 'bg-gray-300' }  text-${theme==='dark '? 'white':'black'} border-t-2`}>
+        <footer className={`footer p-10 bg-${theme==='dark'&& 'black' }  text-${theme==='dark '&& 'white'} border-t-2`}>
             <aside>
                 <img src="https://htmldemo.net/elecron/elecron/assets/images/logo/logo-2.png" alt="" />
                 <p>Elecron Industries Ltd.<br />Providing reliable tech since 1992</p>

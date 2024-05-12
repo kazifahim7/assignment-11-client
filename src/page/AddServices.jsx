@@ -3,6 +3,7 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import 'sweetalert2/src/sweetalert2.scss'
+import { Helmet } from "react-helmet-async";
 
 
 const AddServices = () => {
@@ -59,6 +60,14 @@ const AddServices = () => {
 
     return (
         <div className="container mx-auto my-10">
+            <Helmet>
+                <title>ADD services</title>
+            </Helmet>
+
+
+
+
+
             <div>
                 <div className="hero rounded-xl " style={{ backgroundImage: 'url(https://htmldemo.net/elecron/elecron/assets/images/bg/breadcrumb-bg-01.jpg)' , height:'400px'}}>
                     <div className="hero-overlay bg-opacity-60 rounded-xl"></div>
@@ -89,7 +98,7 @@ const AddServices = () => {
                                         id='category'
                                         ref={servicetitle}
                                         required
-                                        className='border p-2 rounded-md'
+                                        className='border p-2 rounded-md bg-white'
                                     >
                                         <option value=''></option>
                                         <option value='Laptop Repair'>Laptop Repair</option>
@@ -98,6 +107,9 @@ const AddServices = () => {
                                         <option value='iPhone Repair'>iPhone Repair</option>
                                         <option value='Desktop Repair'>Desktop Repair</option>
                                         <option value='MotherBoard Repair'>MotherBoard Repair</option>
+                                        <option value='Speaker Repair'>Speaker Repair</option>
+                                        <option value='light Repair'>light Repair</option>
+                                        <option value='MicroPhone Repair'>MicroPhone Repair</option>
                                     </select>
                                 </div>
                                 <div>
