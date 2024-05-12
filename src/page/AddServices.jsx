@@ -1,5 +1,8 @@
 import { useContext, useRef } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import axios from "axios";
+import Swal from "sweetalert2";
+import 'sweetalert2/src/sweetalert2.scss'
 
 
 const AddServices = () => {
@@ -33,6 +36,21 @@ const AddServices = () => {
             description
         }
         console.log(servicesInfo)
+        axios.post('http://localhost:5000/services',servicesInfo)
+        .then(data=>{
+            if (data.data.insertedId){
+                Swal.fire({
+                    title: "Service added",
+                    text: "You clicked the button!",
+                    icon: "success"
+                });
+
+                e.target.reset();
+            }
+        })
+
+
+
 
     }
 
@@ -74,12 +92,12 @@ const AddServices = () => {
                                         className='border p-2 rounded-md'
                                     >
                                         <option value=''></option>
-                                        <option value='Web Development'>Laptop Repair</option>
-                                        <option value='Graphics Design'>SmartPhone Repair</option>
-                                        <option value='Digital Marketing'>Camera Repair</option>
-                                        <option value='Digital Marketing'>iPhone Repair</option>
-                                        <option value='Digital Marketing'>Desktop Repair</option>
-                                        <option value='Digital Marketing'>MotherBoard Repair</option>
+                                        <option value='Laptop Repair'>Laptop Repair</option>
+                                        <option value='SmartPhone Repair'>SmartPhone Repair</option>
+                                        <option value='Camera Repair'>Camera Repair</option>
+                                        <option value='iPhone Repair'>iPhone Repair</option>
+                                        <option value='Desktop Repair'>Desktop Repair</option>
+                                        <option value='MotherBoard Repair'>MotherBoard Repair</option>
                                     </select>
                                 </div>
                                 <div>
