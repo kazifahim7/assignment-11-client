@@ -16,6 +16,10 @@ import AuthProvider from './AuthProvider/AuthProvider';
 import AddServices from './page/AddServices';
 import AllServices from './page/AllServices';
 import ServiceDetails from './components/ServiceDetails';
+import ManageService from './page/ManageService';
+import Update from './components/Update';
+import Private from './PrivateRoutes/Private';
+
 
 const router = createBrowserRouter([
   {
@@ -46,10 +50,20 @@ const router = createBrowserRouter([
       element:<AllServices></AllServices>
     },
     {
-      path:'/services/:id',
-      element:<ServiceDetails></ServiceDetails>,
-      loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+      path:'/single/:id',
+      element: <Private><ServiceDetails></ServiceDetails></Private>,
+      loader: ({ params }) => fetch(`http://localhost:5000/single/${params.id}`)
+    },
+    {
+      path:'/ManageService',
+      element: <Private><ManageService></ManageService></Private>
+    },
+    {
+      path:'/update/:id',
+      element: <Private><Update></Update></Private>,
+      loader: ({params}) => fetch(`http://localhost:5000/single/${params.id}`)
     }
+    
   ]
   },
 ]);

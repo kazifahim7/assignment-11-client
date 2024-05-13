@@ -16,7 +16,7 @@ const ServicesCard = ({ service }) => {
                 </div>
                 <p> <span className="font-extrabold">Description:</span> {service.description.slice(0,100)}...</p>
                 <div className="card-actions w-full">
-                    <Link className="w-full" to={`/services/${service._id}`}><button className="btn bg-[#e26d2f] w-full">View Details</button></Link>
+                    <Link className="w-full" to={`/single/${service._id}`}><button className="btn bg-[#e26d2f] w-full">View Details</button></Link>
                 </div>
             </div>
         </div>
