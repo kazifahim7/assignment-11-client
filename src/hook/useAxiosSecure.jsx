@@ -4,32 +4,32 @@ import { useEffect } from "react";
 import auth from "../firebase/firebase.config";
 import { useNavigate } from "react-router-dom";
 
-const axiosSecure=axios.create({
-    baseURL:'http://localhost:7000',
+const axiosSecure = axios.create({
+    baseURL: 'https://assigment11-five.vercel.app',
     withCredentials: true
 })
 
 const useAxiosSecure = () => {
     const navigation = useNavigate()
-    useEffect(()=>{
-        axiosSecure.interceptors.response.use(res=>{
+    useEffect(() => {
+        axiosSecure.interceptors.response.use(res => {
             return res;
         },
-        error=>{
-            if (error.response.status === 401 || error.response.status === 403 ){
-               signOut(auth) 
-               .then(()=>{
-                navigation('/login')
-               })
-               .catch(error=>console.log(error))
+            error => {
+                if (error.response.status === 401 || error.response.status === 403) {
+                    signOut(auth)
+                        .then(() => {
+                            navigation('/login')
+                        })
+                        .catch(error => console.log(error))
+                }
             }
-        }
-    )
-    },[navigation])
+        )
+    }, [navigation])
 
 
 
-   return axiosSecure;
+    return axiosSecure;
 };
 
 export default useAxiosSecure;

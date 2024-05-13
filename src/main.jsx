@@ -26,55 +26,55 @@ import Todo from './page/Todo';
 const router = createBrowserRouter([
   {
     path: "/",
-    errorElement:<Error></Error>,
+    errorElement: <Error></Error>,
     element: <Mainlayout></Mainlayout>,
-    children:[
+    children: [
       {
-        path:'/',
-        element:<Home></Home>
-        
+        path: '/',
+        element: <Home></Home>
 
-    },
-    {
-      path:'/login',
-      element:<LogIn></LogIn>
-    },
-    {
-      path:'/registration',
-      element:<Register></Register>
-    },
-    {
-      path:'/AddService',
-      element: <Private><AddServices></AddServices></Private>
-    },
-    {
-      path:'/allServices',
-      element:<AllServices></AllServices>
-    },
-    {
-      path:'/single/:id',
-      element: <Private><ServiceDetails></ServiceDetails></Private>,
-      loader: ({ params }) => fetch(`http://localhost:7000/single/${params.id}`)
-    },
-    {
-      path:'/ManageService',
-      element: <Private><ManageService></ManageService></Private>
-    },
-    {
-      path:'/update/:id',
-      element: <Private><Update></Update></Private>,
-      loader: ({params}) => fetch(`http://localhost:7000/single/${params.id}`)
-    },
-    {
-      path:'/BookedServices',
-      element: <Private><BookedServices></BookedServices></Private>
-    },
-    {
-      path:'/todo',
-      element:<Todo></Todo>
-    }
-    
-  ]
+
+      },
+      {
+        path: '/login',
+        element: <LogIn></LogIn>
+      },
+      {
+        path: '/registration',
+        element: <Register></Register>
+      },
+      {
+        path: '/AddService',
+        element: <Private><AddServices></AddServices></Private>
+      },
+      {
+        path: '/allServices',
+        element: <AllServices></AllServices>
+      },
+      {
+        path: '/single/:id',
+        element: <Private><ServiceDetails></ServiceDetails></Private>,
+        loader: ({ params }) => fetch(`https://assigment11-five.vercel.app/single/${params.id}`)
+      },
+      {
+        path: '/ManageService',
+        element: <Private><ManageService></ManageService></Private>
+      },
+      {
+        path: '/update/:id',
+        element: <Private><Update></Update></Private>,
+        loader: ({ params }) => fetch(`https://assigment11-five.vercel.app/single/${params.id}`)
+      },
+      {
+        path: '/BookedServices',
+        element: <Private><BookedServices></BookedServices></Private>
+      },
+      {
+        path: '/todo',
+        element: <Todo></Todo>
+      }
+
+    ]
   },
 ]);
 
@@ -87,10 +87,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <RouterProvider router={router} />
 
       </AuthProvider>
-      
+
 
     </HelmetProvider>
 
-    
+
   </React.StrictMode>,
 )

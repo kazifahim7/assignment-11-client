@@ -5,7 +5,7 @@ import 'sweetalert2/src/sweetalert2.scss'
 
 
 const TableInfo = ({ service, index, setServices, services }) => {
-    const handleDelete=id=>{
+    const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -15,13 +15,13 @@ const TableInfo = ({ service, index, setServices, services }) => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
-           
-            axios.delete(`http://localhost:7000/single/${id}`)
+
+            axios.delete(`https://assigment11-five.vercel.app/single/${id}`)
                 .then(data => {
                     const existing = services.filter((item) => item._id !== id)
                     setServices(existing)
 
-                    if (data.data.deletedCount > 0){
+                    if (data.data.deletedCount > 0) {
                         if (result.isConfirmed) {
                             Swal.fire({
                                 title: "Deleted!",
@@ -31,7 +31,7 @@ const TableInfo = ({ service, index, setServices, services }) => {
                         }
 
                     }
-                   
+
 
                 })
         });
@@ -41,13 +41,13 @@ const TableInfo = ({ service, index, setServices, services }) => {
 
     return (
         <tr>
-            <th>{index+1}</th>
+            <th>{index + 1}</th>
             <td>{service.providerName}</td>
             <td>{service.providerEmail}</td>
             <td>{service.serviceName}</td>
             <td className="space-x-1"><Link to={`/update/${service._id}`}><button className="btn ">Update</button></Link>
-                
-                <Link><button onClick={()=>handleDelete(service._id)} className="btn ">Delete</button></Link>
+
+                <Link><button onClick={() => handleDelete(service._id)} className="btn ">Delete</button></Link>
 
             </td>
         </tr>

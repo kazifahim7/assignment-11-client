@@ -5,7 +5,7 @@ const TodoTable = ({ item, setText }) => {
     const handleClick = (id, status) => {
 
 
-        axios.patch(`http://localhost:7000/update/${id}`, { status })
+        axios.patch(`https://assigment11-five.vercel.app/update/${id}`, { status })
             .then(data => {
                 console.log(data)
                 setText(status)
@@ -15,7 +15,7 @@ const TodoTable = ({ item, setText }) => {
 
     return (
         <tr>
-            
+
             <td>{item.customerName}</td>
             <td>{item.customerEmail}</td>
             <td>{item.dates}</td>

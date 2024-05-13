@@ -1,7 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { IoLocationSharp } from "react-icons/io5";
 import { Helmet } from "react-helmet-async";
-import { useContext} from "react";
+import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { MdCancel } from "react-icons/md";
 import axios from "axios";
@@ -10,10 +10,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const ServiceDetails = () => {
-    const service=useLoaderData()
-    const navigate=useNavigate()
-    const {user}=useContext(AuthContext)
-    const bookingHandler=e=>{
+    const service = useLoaderData()
+    const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
+    const bookingHandler = e => {
         e.preventDefault()
         const id = e.target.service_id.value;
         const serviceName = e.target.service_name.value;
@@ -26,29 +26,29 @@ const ServiceDetails = () => {
         const dates = e.target.data.value;
         const comments = e.target.comment.value;
 
-        const bookingInfo={
+        const bookingInfo = {
             id,
             serviceName,
             img,
             providerEmail,
             cost,
             providerName,
-            status : 'Pending',
+            status: 'Pending',
             customerEmail,
             customerName,
             comments,
             dates
         }
-        
-        axios.post('http://localhost:7000/bookings',bookingInfo)
-        .then((data)=>{
-            if (data.data.insertedId) {
-               toast.success('booking success')
 
-                e.target.reset();
-                navigate('/BookedServices')
-            }
-        })
+        axios.post('https://assigment11-five.vercel.app/bookings', bookingInfo)
+            .then((data) => {
+                if (data.data.insertedId) {
+                    toast.success('booking success')
+
+                    e.target.reset();
+                    navigate('/BookedServices')
+                }
+            })
 
 
 
@@ -182,7 +182,7 @@ const ServiceDetails = () => {
 
 
 
-                                    
+
                                 </div>
                             </dialog>
 
@@ -192,13 +192,13 @@ const ServiceDetails = () => {
 
 
                         </div>
-                        
 
-                        
+
+
                     </div>
                 </div>
             </div>
-            
+
         </div>
     );
 };
