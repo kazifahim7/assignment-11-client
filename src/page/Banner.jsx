@@ -11,7 +11,7 @@ const Banner = ({image1}) => {
                     <p className="mb-5">There are many variations of passages of Electronics Services,  but the electronics <br /> have suffered alteration electronics repair, by injected <br /> humour yrawtap lewoj itaque quam praesentium.</p>
                     <div className="space-x-3">
                         <Link to={'/allServices'}><button className="btn  bg-[#e26d2f] text-white border-none">All Services</button></Link>
-                        <button className="btn btn-outline text-white border-white border">Booked Service</button>
+                        <Link to={'/BookedServices'}><button className="btn btn-outline text-white border-white border">Booked Service</button></Link>
                     </div>
                 </div>
             </div>
