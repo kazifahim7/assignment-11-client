@@ -9,7 +9,7 @@ const ManageService = () => {
     const {user}=useContext(AuthContext)
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/services/${user?.email}`)
+        axios.get(`http://localhost:7000/services/${user?.email}`)
         .then(data=>setServices(data.data))
     },[user?.email])
 
@@ -17,7 +17,7 @@ const ManageService = () => {
     return (
         <div>
             <div className="overflow-x-auto container mx-auto">
-                <table className="table">
+                <table className="table border my-10">
                     {/* head */}
                     <thead>
                         <tr>

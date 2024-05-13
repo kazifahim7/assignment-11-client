@@ -16,7 +16,7 @@ const TableInfo = ({ service, index, setServices, services }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
            
-            axios.delete(`http://localhost:5000/single/${id}`)
+            axios.delete(`http://localhost:7000/single/${id}`)
                 .then(data => {
                     const existing = services.filter((item) => item._id !== id)
                     setServices(existing)

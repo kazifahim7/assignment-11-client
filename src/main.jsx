@@ -19,6 +19,8 @@ import ServiceDetails from './components/ServiceDetails';
 import ManageService from './page/ManageService';
 import Update from './components/Update';
 import Private from './PrivateRoutes/Private';
+import BookedServices from './page/BookedServices';
+import Todo from './page/Todo';
 
 
 const router = createBrowserRouter([
@@ -43,7 +45,7 @@ const router = createBrowserRouter([
     },
     {
       path:'/AddService',
-      element:<AddServices></AddServices>
+      element: <Private><AddServices></AddServices></Private>
     },
     {
       path:'/allServices',
@@ -52,7 +54,7 @@ const router = createBrowserRouter([
     {
       path:'/single/:id',
       element: <Private><ServiceDetails></ServiceDetails></Private>,
-      loader: ({ params }) => fetch(`http://localhost:5000/single/${params.id}`)
+      loader: ({ params }) => fetch(`http://localhost:7000/single/${params.id}`)
     },
     {
       path:'/ManageService',
@@ -61,7 +63,15 @@ const router = createBrowserRouter([
     {
       path:'/update/:id',
       element: <Private><Update></Update></Private>,
-      loader: ({params}) => fetch(`http://localhost:5000/single/${params.id}`)
+      loader: ({params}) => fetch(`http://localhost:7000/single/${params.id}`)
+    },
+    {
+      path:'/BookedServices',
+      element: <Private><BookedServices></BookedServices></Private>
+    },
+    {
+      path:'/todo',
+      element:<Todo></Todo>
     }
     
   ]

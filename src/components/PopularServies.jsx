@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const PopularServies = () => {
     const [Services, setServices] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:5000/services`)
+        axios.get(`http://localhost:7000/services`)
             .then(data => setServices(data.data))
 
 

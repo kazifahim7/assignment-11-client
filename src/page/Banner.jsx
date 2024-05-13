@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = ({image1}) => {
     return (
         <div className="hero bg-cover bg-no-repeat   bg-top" style={{ backgroundImage: `url(${image1})` , height:520,}}>
@@ -8,7 +10,7 @@ const Banner = ({image1}) => {
                         Soon As  <span className="text-[#e26d2f]">Possible</span></h1>
                     <p className="mb-5">There are many variations of passages of Electronics Services,  but the electronics <br /> have suffered alteration electronics repair, by injected <br /> humour yrawtap lewoj itaque quam praesentium.</p>
                     <div className="space-x-3">
-                        <button className="btn  bg-[#e26d2f] text-white border-none">All Services</button>
+                        <Link to={'/allServices'}><button className="btn  bg-[#e26d2f] text-white border-none">All Services</button></Link>
                         <button className="btn btn-outline text-white border-white border">Booked Service</button>
                     </div>
                 </div>

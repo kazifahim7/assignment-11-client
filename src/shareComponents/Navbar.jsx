@@ -67,7 +67,7 @@ const Navbar = () => {
                             <ul className="p-2">
                                 <li><NavLink to={'/AddService'}>Add Service</NavLink></li>
                                 <li> <NavLink to={'/ManageService'}>ManageService</NavLink></li>
-                                <li><NavLink to={'/Booked-Services'}>BookedServices</NavLink></li>
+                                <li><NavLink to={'/BookedServices'}>BookedServices</NavLink></li>
                                 <li> <NavLink to={'/todo'}>Service-To-Do</NavLink></li>
                                
                             </ul>
@@ -88,7 +88,7 @@ const Navbar = () => {
                             <ul className="p-1">
                                 <li><NavLink to={'/AddService'}>Add Service</NavLink></li>
                                 <li><NavLink to={'/ManageService'}>ManageService</NavLink></li>
-                                <li><NavLink to={'/Booked-Services'}>BookedServices</NavLink></li>
+                                <li><NavLink to={'/BookedServices'}>BookedServices</NavLink></li>
                                 <li><NavLink to={'/todo'}>Service-To-Do</NavLink></li>
 
                             </ul>

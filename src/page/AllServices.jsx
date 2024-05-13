@@ -10,7 +10,7 @@ const AllServices = () => {
     const [search,setSearch]=useState('')
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/service?search=${search}`)
+        axios.get(`http://localhost:7000/service?search=${search}`)
         .then(data=>setServices(data.data))
 
 
