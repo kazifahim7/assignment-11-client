@@ -66,7 +66,7 @@ const ServiceDetails = () => {
             </Helmet>
             <div className="hero">
                 <div className="hero-content flex-col lg:flex-row">
-                    <img src={service.servicePhoto} className=" rounded-lg shadow-2xl" />
+                    <img src={service.servicePhoto} className=" w-1/2 rounded-lg shadow-2xl" />
                     <div>
                         <h1 className="font-bold">Service Section:</h1>
                         <h1 className="text-5xl font-bold">{service.serviceName}</h1>

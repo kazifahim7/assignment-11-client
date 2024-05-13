@@ -37,7 +37,7 @@ const AddServices = () => {
             description
         }
         console.log(servicesInfo)
-        axios.post('http://localhost:5000/services',servicesInfo)
+        axios.post('http://localhost:7000/services',servicesInfo)
         .then(data=>{
             if (data.data.insertedId){
                 Swal.fire({

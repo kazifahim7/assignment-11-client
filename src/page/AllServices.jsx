@@ -40,7 +40,7 @@ const AllServices = () => {
                
             </form>
 
-            <div className={`${Services.length>0 ? 'hidden': 'block'}  flex justify-center items-center`}>
+            <div className={`${Services.length>0 ? 'hidden': 'block'} my-5 rounded-lg  flex justify-center items-center`}>
                 <img src="https://i.ibb.co/tpQkDyD/9264885.jpg" alt="" className="w-[500px] h-[500px]" />
             </div>
 
