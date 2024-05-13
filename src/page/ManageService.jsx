@@ -1,17 +1,20 @@
-import axios from "axios";
+// import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import TableInfo from "../components/Tableinfo";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 
 const ManageService = () => {
     const [services,setServices]=useState([])
     const {user}=useContext(AuthContext)
+    const axiosSecure=useAxiosSecure()
+
 
     useEffect(()=>{
-        axios.get(`http://localhost:7000/services/${user?.email}`)
+        axiosSecure.get(`/services/${user?.email}`)
         .then(data=>setServices(data.data))
-    },[user?.email])
+    },[user?.email,axiosSecure])
 
 
     return (

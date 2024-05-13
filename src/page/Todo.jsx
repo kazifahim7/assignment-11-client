@@ -1,7 +1,8 @@
-import axios from "axios";
+
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import TodoTable from "../components/TodoTable";
+import useAxiosSecure from "../hook/useAxiosSecure";
 
 
 const Todo = () => {
@@ -9,11 +10,12 @@ const Todo = () => {
     const { user } = useContext(AuthContext)
 
     const [text,setText]=useState(null)
+    const axiosSecure=useAxiosSecure()
 
     useEffect(() => {
-        axios.get(`http://localhost:7000/bookingRequest/${user?.email}`)
+        axiosSecure.get(`/bookingRequest/${user?.email}`)
             .then((data) => setBookedData(data.data))
-    }, [user,text])
+    }, [user,text,axiosSecure])
 
     
 
