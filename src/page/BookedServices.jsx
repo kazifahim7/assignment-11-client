@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import BookingTable from "../components/BookingTable";
 import useAxiosSecure from "../hook/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 
 const BookedServices = () => {
@@ -18,6 +19,9 @@ const BookedServices = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Book Service</title>
+            </Helmet>
             <h1 className="text-center font-extrabold text-4xl">Booked Services</h1>
             <div className={`${bookedData.length > 0 ? 'hidden' : 'block'}  flex justify-center items-center`}>
                 <img src="https://i.ibb.co/tpQkDyD/9264885.jpg" alt="" className="w-[500px] h-[500px]" />
