@@ -77,7 +77,7 @@ const Navbar = () => {
                        
                     </ul>
                 </div>
-                <img src="https://htmldemo.net/elecron/elecron/assets/images/logo/logo.png" alt="" className="w-28 " />
+                <img src="https://htmldemo.net/elecron/elecron/assets/images/logo/logo.png" alt="" className="w-24 " />
             </div>
             <div className="navbar-center hidden lg:flex items-center justify-center">
                 <ul className="menu menu-horizontal px-1 flex items-center gap-3">

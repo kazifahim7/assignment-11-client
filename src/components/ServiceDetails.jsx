@@ -1,7 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { IoLocationSharp } from "react-icons/io5";
 import { Helmet } from "react-helmet-async";
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { MdCancel } from "react-icons/md";
 import axios from "axios";
