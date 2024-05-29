@@ -1,17 +1,18 @@
 import axios from "axios";
 
 
-const TodoTable = ({ item, setText }) => {
+const TodoTable = ({ item, setText, text }) => {
     const handleClick = (id, status) => {
 
 
         axios.patch(`https://assigment11-five.vercel.app/update/${id}`, { status })
             .then(data => {
                 console.log(data)
-                setText(status)
+                setText(!text)
 
             })
     }
+    
 
     return (
         <tr>

@@ -9,6 +9,9 @@ const AllServices = () => {
     const [Services, setServices] = useState([])
     const [search, setSearch] = useState('')
 
+
+   
+
     useEffect(() => {
         axios.get(`https://assigment11-five.vercel.app/service?search=${search}`)
             .then(data => setServices(data.data))
@@ -44,9 +47,12 @@ const AllServices = () => {
                 <img src="https://i.ibb.co/tpQkDyD/9264885.jpg" alt="" className="w-[500px] h-[500px]" />
             </div>
 
+
+            
+
             <div className="container my-8 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                 {
-                    Services.map((service) => <ServicesCard key={service._id} service={service}></ServicesCard>)
+                    Services?.map((service) => <ServicesCard key={service._id} service={service}></ServicesCard>)
                 }
 
             </div>

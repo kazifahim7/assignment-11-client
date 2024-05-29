@@ -71,7 +71,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/todo',
-        element: <Todo></Todo>
+        element: <Private><Todo></Todo></Private>
       }
 
     ]

@@ -10,7 +10,7 @@ const Todo = () => {
     const [bookedData, setBookedData] = useState([])
     const { user } = useContext(AuthContext)
 
-    const [text,setText]=useState(null)
+    const [text,setText]=useState(true)
     const axiosSecure=useAxiosSecure()
 
     useEffect(() => {
@@ -53,7 +53,7 @@ const Todo = () => {
 
 
                             {
-                                bookedData?.map((item, index) => <TodoTable setText={setText} index={index} item={item} key={item._id}></TodoTable>)
+                                bookedData?.map((item, index) => <TodoTable text={text} setText={setText} index={index} item={item} key={item._id}></TodoTable>)
                             }
 
 
